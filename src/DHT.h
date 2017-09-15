@@ -49,8 +49,7 @@ public:
     m_humidity(0),
     m_temperature(0)
   {
-    m_data.input();
-    m_data.low();
+    m_data.open_collector();
   }
 
   /**
@@ -82,10 +81,10 @@ public:
     m_data.output();
     delay(START_SIGNAL);
     m_data.input();
-    uint8_t retry = 16;
+    int retry = 16;
     do {
       delayMicroseconds(PULLUP);
-    } while (m_data != 0 && --retry);
+    } while (m_data && --retry);
     if (retry == 0 || m_data.pulse() < THRESHOLD) return (-2);
 
     // Read data from the device. Each bit is pulse width coded;
@@ -94,8 +93,10 @@ public:
     uint8_t d[5];
     for (int i = 0; i < 5; i++) {
       uint8_t v = 0;
-      for (int j = 0; j < 8; j++)
-	v = (v << 1) | (m_data.pulse() > THRESHOLD);
+      for (int j = 0; j < 8; j++) {
+	uint8_t width = m_data.pulse();
+	v = (v << 1) | (width > THRESHOLD);
+      }
       d[i] = v;
       if (i < 4) chsum += v;
     }

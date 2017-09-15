@@ -32,5 +32,5 @@ void loop()
     Serial.print(F(": res = "));
     Serial.println(res);
   }
-  delay(1000);
+  delay(2000);
 }

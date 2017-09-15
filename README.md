@@ -2,7 +2,7 @@
 The DHT11 library is an Arduino-GPIO based device driver for the DHTXX
 Humidity and Temperature Sensor (DHT11, DHT21 and DHT22).
 
-Version: 1.0
+Version: 1.1
 
 ## Classes
 

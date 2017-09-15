@@ -3,7 +3,7 @@
 The DHT library is an Arduino-GPIO based device driver for the DHTXX
 Humidity and Temperature Sensors (DHT11, DHT21 and DHT22).
 
-Version: 1.0
+Version: 1.1
 */
 
 /** @page License
