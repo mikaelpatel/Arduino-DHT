@@ -49,7 +49,7 @@ public:
     m_humidity(0),
     m_temperature(0)
   {
-    m_data.open_collector();
+    m_data.open_drain();
   }
 
   /**
