@@ -6,7 +6,7 @@
 Software::Serial<BOARD::D0> Serial;
 DHT11<BOARD::D1> dht;
 #else
-DHT11<BOARD::D7> dht;
+DHT11<BOARD::D8> dht;
 #endif
 
 void setup()
